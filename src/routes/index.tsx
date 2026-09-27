@@ -80,7 +80,6 @@ function Index() {
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Header />
       <main id="main">
         <Hero />
         <Features />
@@ -90,38 +89,6 @@ function Index() {
         <CTA />
       </main>
     </div>
-  );
-}
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border/50">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2 font-extrabold text-xl">
-          <span className="w-9 h-9 rounded-xl gradient-primary shadow-glow flex items-center justify-center">
-            <Zap className="w-5 h-5 text-white" />
-          </span>
-          <span>Aree<span className="text-gradient-primary">Live</span></span>
-        </Link>
-        <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-foreground transition">Home</Link>
-          <a href="#features" className="hover:text-foreground transition">Features</a>
-          <a href="#how" className="hover:text-foreground transition">How it works</a>
-          <a href="#creators" className="hover:text-foreground transition">Creators</a>
-          <Link to="/join" className="hover:text-foreground transition">Join AREELIVE</Link>
-          <Link to="/invite-broadcaster" className="hover:text-foreground transition">Invite Broadcaster</Link>
-          <Link to="/contact" className="hover:text-foreground transition">Contact</Link>
-        </div>
-        <a
-          href="#download"
-          onClick={() => trackEvent("download_click", { location: "header", platform: "web" })}
-        >
-          <Button className="gradient-primary text-white border-0 shadow-glow rounded-full font-semibold">
-            Download App
-          </Button>
-        </a>
-      </nav>
-    </header>
   );
 }
 

@@ -51,14 +51,6 @@ function RoleApply() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border/40 bg-background/80 backdrop-blur sticky top-0 z-40">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <Link to="/" className="text-lg font-black tracking-tight">AREELIVE</Link>
-          <nav className="flex items-center gap-2">
-            <Link to="/join" className="text-sm text-muted-foreground hover:text-foreground">All roles</Link>
-          </nav>
-        </div>
-      </header>
 
       <section className="relative overflow-hidden border-b border-border/40">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/20 via-background to-background" />

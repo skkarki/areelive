@@ -12,13 +12,16 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ReferralPolicyRouteImport } from './routes/referral-policy'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as InviteBroadcasterRouteImport } from './routes/invite-broadcaster'
+import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompanyRouteImport } from './routes/company'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -44,6 +47,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReferralPolicyRoute = ReferralPolicyRouteImport.update({
   id: '/referral-policy',
   path: '/referral-policy',
@@ -64,6 +72,11 @@ const InviteBroadcasterRoute = InviteBroadcasterRouteImport.update({
   path: '/invite-broadcaster',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreatorsRoute = CreatorsRouteImport.update({
   id: '/creators',
   path: '/creators',
@@ -77,6 +90,11 @@ const CookiesRoute = CookiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyRoute = CompanyRouteImport.update({
+  id: '/company',
+  path: '/company',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessRoute = BusinessRouteImport.update({
@@ -130,13 +148,16 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/creators': typeof CreatorsRoute
+  '/features': typeof FeaturesRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
+  '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -150,13 +171,16 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/creators': typeof CreatorsRoute
+  '/features': typeof FeaturesRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
+  '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -171,13 +195,16 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/creators': typeof CreatorsRoute
+  '/features': typeof FeaturesRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
+  '/safety': typeof SafetyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
@@ -193,13 +220,16 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/business'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/creators'
+    | '/features'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
     | '/referral-policy'
+    | '/safety'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
@@ -213,13 +243,16 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/business'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/creators'
+    | '/features'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
     | '/referral-policy'
+    | '/safety'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
@@ -233,13 +266,16 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/business'
+    | '/company'
     | '/contact'
     | '/cookies'
     | '/creators'
+    | '/features'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
     | '/referral-policy'
+    | '/safety'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
@@ -255,13 +291,16 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   BusinessRoute: typeof BusinessRoute
+  CompanyRoute: typeof CompanyRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   CreatorsRoute: typeof CreatorsRoute
+  FeaturesRoute: typeof FeaturesRoute
   InviteBroadcasterRoute: typeof InviteBroadcasterRoute
   JoinRoute: typeof JoinRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ReferralPolicyRoute: typeof ReferralPolicyRoute
+  SafetyRoute: typeof SafetyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
@@ -288,6 +327,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/referral-policy': {
@@ -318,6 +364,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InviteBroadcasterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/creators': {
       id: '/creators'
       path: '/creators'
@@ -337,6 +390,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company': {
+      id: '/company'
+      path: '/company'
+      fullPath: '/company'
+      preLoaderRoute: typeof CompanyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business': {
@@ -446,13 +506,16 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   BusinessRoute: BusinessRoute,
+  CompanyRoute: CompanyRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   CreatorsRoute: CreatorsRoute,
+  FeaturesRoute: FeaturesRoute,
   InviteBroadcasterRoute: InviteBroadcasterRoute,
   JoinRoute: JoinRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ReferralPolicyRoute: ReferralPolicyRoute,
+  SafetyRoute: SafetyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,

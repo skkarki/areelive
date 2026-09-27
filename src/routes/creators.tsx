@@ -60,14 +60,14 @@ function CreatorsPage() {
           </div>
           <dl className="grid grid-cols-2 gap-3 rounded-xl border border-border bg-card/50 p-6">
             {[
-              { value: "Global", label: "Audience Reach" },
-              { value: "Live", label: "Community Interaction" },
+              { value: "500K+", label: "Active Creators" },
+              { value: "150+", label: "Countries" },
               { value: "Real-time", label: "Analytics" },
-              { value: "Dedicated", label: "Creator Support" },
+              { value: "24/7", label: "Creator Support" },
             ].map((stat) => (
               <div key={stat.label} className="rounded-lg bg-primary/5 px-3 py-5 text-center">
-                <dt className="text-xs text-muted-foreground">{stat.label}</dt>
-                <dd className="mt-1 text-xl font-bold text-primary">{stat.value}</dd>
+                <dt className="text-xl font-bold text-primary">{stat.value}</dt>
+                <dd className="mt-1 text-xs text-muted-foreground">{stat.label}</dd>
               </div>
             ))}
           </dl>

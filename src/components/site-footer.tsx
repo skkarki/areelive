@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Youtube } from "lucide-react";
+import { SiteBrand } from "@/components/site-brand";
 
 const groups = [
   {
     title: "Company",
     links: [
       { label: "About", href: "/creators" },
-      { label: "Company", href: "/business" },
+      { label: "Company", href: "/company" },
       { label: "Careers", href: "/join" },
       { label: "Contact Us", href: "/contact" },
     ],
@@ -14,9 +15,9 @@ const groups = [
   {
     title: "Platform",
     links: [
-      { label: "Features", href: "/#features" },
+      { label: "Features", href: "/features" },
       { label: "Creators", href: "/creators" },
-      { label: "Safety", href: "/terms#acceptable-use" },
+      { label: "Safety", href: "/safety" },
       { label: "Get AreeLive", href: "/#download" },
     ],
   },
@@ -58,29 +59,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:px-8 md:pt-14">
         <div className="mb-14 flex flex-col justify-between gap-7 sm:flex-row sm:items-start md:mb-16">
           <div>
-            <Link
-              to="/"
-              aria-label="AreeLive home"
-              className="inline-flex items-center gap-2 rounded-sm text-3xl font-bold italic tracking-tight text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <svg
-                width="32"
-                height="40"
-                viewBox="0 0 32 40"
-                fill="none"
-                className="text-primary"
-                aria-hidden="true"
-              >
-                <circle cx="6" cy="20" r="4" fill="currentColor" />
-                <path
-                  d="M13 12 Q24 20 13 28 M17 7 Q34 20 17 33 M21 2 Q44 20 21 38"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-              AreeLive
-            </Link>
+            <SiteBrand />
             <p className="mt-6 max-w-md text-sm leading-relaxed md:text-base">
               The future of global live entertainment.
               <br />
