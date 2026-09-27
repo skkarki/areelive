@@ -9,6 +9,7 @@ import { trackEvent, type AnalyticsPayload } from "@/lib/analytics";
 import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero.jpg";
 import phoneImg from "@/assets/phone-mockup.png";
+import { JoinSection } from "@/components/join-section";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -85,6 +86,7 @@ function Index() {
         <Features />
         <HowItWorks />
         <Creators />
+        <JoinSection />
         <CTA />
       </main>
       <Footer />

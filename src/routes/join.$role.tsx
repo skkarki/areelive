@@ -3,6 +3,7 @@ import { ApplicationForm, ROLE_META, type RoleKey } from "@/components/applicati
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles } from "lucide-react";
+import { AgencyPage } from "@/components/agency-page";
 
 const VALID_ROLES: RoleKey[] = [
   "creator", "agency", "merchant", "admin", "recruiter", "agency_manager", "host",
@@ -45,6 +46,8 @@ export const Route = createFileRoute("/join/$role")({
 function RoleApply() {
   const { role } = Route.useLoaderData() as { role: RoleKey };
   const label = ROLE_META[role].label;
+
+  if (role === "agency") return <AgencyPage />;
 
   return (
     <div className="min-h-screen bg-background text-foreground">

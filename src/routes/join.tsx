@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatch } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -90,6 +90,9 @@ export const Route = createFileRoute("/join")({
 });
 
 function JoinPage() {
+  const roleMatch = useMatch({ from: "/join/$role", shouldThrow: false });
+  if (roleMatch) return <Outlet />;
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/40 bg-background/80 backdrop-blur sticky top-0 z-40">

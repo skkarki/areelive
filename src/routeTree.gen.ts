@@ -16,8 +16,10 @@ import { Route as ReferralPolicyRouteImport } from './routes/referral-policy'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as InviteBroadcasterRouteImport } from './routes/invite-broadcaster'
+import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BusinessRouteImport } from './routes/business'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -62,6 +64,11 @@ const InviteBroadcasterRoute = InviteBroadcasterRouteImport.update({
   path: '/invite-broadcaster',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatorsRoute = CreatorsRouteImport.update({
+  id: '/creators',
+  path: '/creators',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CookiesRoute = CookiesRouteImport.update({
   id: '/cookies',
   path: '/cookies',
@@ -70,6 +77,11 @@ const CookiesRoute = CookiesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -117,8 +129,10 @@ const AuthenticatedAdminApplicationsRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/creators': typeof CreatorsRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -135,8 +149,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/creators': typeof CreatorsRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -154,8 +170,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/creators': typeof CreatorsRoute
   '/invite-broadcaster': typeof InviteBroadcasterRoute
   '/join': typeof JoinRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -174,8 +192,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/business'
     | '/contact'
     | '/cookies'
+    | '/creators'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
@@ -192,8 +212,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/business'
     | '/contact'
     | '/cookies'
+    | '/creators'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
@@ -210,8 +232,10 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/business'
     | '/contact'
     | '/cookies'
+    | '/creators'
     | '/invite-broadcaster'
     | '/join'
     | '/privacy'
@@ -230,8 +254,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BusinessRoute: typeof BusinessRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  CreatorsRoute: typeof CreatorsRoute
   InviteBroadcasterRoute: typeof InviteBroadcasterRoute
   JoinRoute: typeof JoinRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
@@ -292,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InviteBroadcasterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/creators': {
+      id: '/creators'
+      path: '/creators'
+      fullPath: '/creators'
+      preLoaderRoute: typeof CreatorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookies': {
       id: '/cookies'
       path: '/cookies'
@@ -304,6 +337,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -405,8 +445,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  BusinessRoute: BusinessRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  CreatorsRoute: CreatorsRoute,
   InviteBroadcasterRoute: InviteBroadcasterRoute,
   JoinRoute: JoinRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
