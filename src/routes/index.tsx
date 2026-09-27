@@ -89,7 +89,6 @@ function Index() {
         <JoinSection />
         <CTA />
       </main>
-      <Footer />
     </div>
   );
 }
@@ -611,51 +610,3 @@ function EmailSignup() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border/50">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid gap-8 md:grid-cols-4 text-sm text-muted-foreground">
-        <div className="space-y-3">
-          <div className="flex items-center gap-2 font-bold text-foreground">
-            <span className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </span>
-            AREELIVE
-          </div>
-          <p className="text-xs">The live streaming app for creators. Go live, get gifted, grow your fandom.</p>
-        </div>
-        <div>
-          <div className="text-foreground font-semibold mb-3">Company</div>
-          <ul className="space-y-2">
-            <li><Link to="/contact" className="hover:text-foreground">Contact Us</Link></li>
-            <li><Link to="/support" className="hover:text-foreground">Support</Link></li>
-            <li><a href="mailto:support@areelive.com" className="hover:text-foreground">support@areelive.com</a></li>
-          </ul>
-        </div>
-        <div>
-          <div className="text-foreground font-semibold mb-3">Join AREELIVE</div>
-          <ul className="space-y-2">
-            <li><Link to="/join" className="hover:text-foreground">Join AREELIVE</Link></li>
-            <li><Link to="/invite-broadcaster" className="hover:text-foreground">Invite Broadcaster</Link></li>
-            <li><Link to="/join/$role" params={{ role: "creator" }} className="hover:text-foreground">Apply as Host</Link></li>
-            <li><Link to="/join/$role" params={{ role: "agency" }} className="hover:text-foreground">Apply as Agency</Link></li>
-          </ul>
-        </div>
-        <div>
-          <div className="text-foreground font-semibold mb-3">Legal</div>
-          <ul className="space-y-2">
-            <li><Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-foreground">Terms &amp; Conditions</Link></li>
-            <li><Link to="/referral-policy" className="hover:text-foreground">Referral Policy</Link></li>
-            <li><Link to="/cookies" className="hover:text-foreground">Cookies</Link></li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-border/40">
-        <div className="max-w-7xl mx-auto px-6 py-4 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} AREELIVE. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-}

@@ -39,14 +39,14 @@ function TermsPage() {
         account. You agree to provide accurate information and to keep it up to date.
       </p>
 
-      <h2>3. Acceptable use</h2>
+      <h2 id="acceptable-use" className="scroll-mt-24">3. Acceptable use</h2>
       <p>
         You agree not to use AREELIVE for illegal, abusive, deceptive, or harmful behavior. AREELIVE may
         remove content, restrict features, or terminate accounts that violate these Terms or our community
         guidelines.
       </p>
 
-      <h2>4. Agency, Recruiter, Host, Admin &amp; Agency Manager Applications</h2>
+      <h2 id="applications" className="scroll-mt-24">4. Agency, Recruiter, Host, Admin &amp; Agency Manager Applications</h2>
       <p>
         AREELIVE offers application programs for agencies, creator recruiters / talent scouts, hosts /
         creators, admins, and agency managers. The following terms apply to every applicant:
@@ -86,7 +86,7 @@ function TermsPage() {
         described in our platform documentation.
       </p>
 
-      <h2>6. Payments &amp; virtual items</h2>
+      <h2 id="payments" className="scroll-mt-24">6. Payments &amp; virtual items</h2>
       <p>
         Purchases of virtual gifts, coins, or other items are subject to the pricing, availability, and
         refund rules published in the app. Payouts to creators, agencies, or referrers are subject to

@@ -51,20 +51,6 @@ export function OpportunityLayout({
         </section>
         {children}
       </main>
-      <footer className="border-t border-border/40 px-6 py-7 text-center text-xs text-muted-foreground">
-        <div className="mb-3 flex justify-center gap-5">
-          <Link to="/privacy" className="hover:text-foreground">
-            Privacy Policy
-          </Link>
-          <Link to="/terms" className="hover:text-foreground">
-            Terms &amp; Conditions
-          </Link>
-          <Link to="/contact" className="hover:text-foreground">
-            Contact
-          </Link>
-        </div>
-        © {new Date().getFullYear()} AreeLive. All rights reserved.
-      </footer>
     </div>
   );
 }

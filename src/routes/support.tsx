@@ -26,7 +26,7 @@ function SupportPage() {
         <a href="mailto:support@areelive.com">support@areelive.com</a>.
       </p>
 
-      <h2>Help for creators &amp; hosts</h2>
+      <h2 id="creators" className="scroll-mt-24">Help for creators &amp; hosts</h2>
       <p>
         Going live, virtual gifts, VIP tiers, leaderboards, entry effects, and creator levels. If your
         stream won't start, your gifts aren't showing, or your profile needs updating, email{" "}
@@ -38,7 +38,7 @@ function SupportPage() {
         <li><a href="/invite-broadcaster">Invite a broadcaster friend &amp; earn</a></li>
       </ul>
 
-      <h2>Help for agencies &amp; recruiters</h2>
+      <h2 id="agencies" className="scroll-mt-24">Help for agencies &amp; recruiters</h2>
       <p>
         Agency onboarding, recruiter approvals, host rosters, and performance bonuses. Email{" "}
         <a href="mailto:support@areelive.com">support@areelive.com</a> with your agency or recruiter name.
@@ -50,14 +50,14 @@ function SupportPage() {
         <li><a href="/join/admin">Apply as Admin</a></li>
       </ul>
 
-      <h2>Account &amp; payment support</h2>
+      <h2 id="technical" className="scroll-mt-24">Account &amp; payment support</h2>
       <p>
         Sign-in issues, profile changes, payout timing, withdrawal methods, or missing earnings — email{" "}
         <a href="mailto:support@areelive.com">support@areelive.com</a> and we'll look it up. Never share
         your password with anyone; AREELIVE will never ask for it.
       </p>
 
-      <h2>Report an issue</h2>
+      <h2 id="report" className="scroll-mt-24">Report an issue</h2>
       <p>
         See a bug, abusive behavior, or a safety concern? Report it to{" "}
         <a href="mailto:support@areelive.com">support@areelive.com</a> with as much detail as possible

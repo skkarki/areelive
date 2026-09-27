@@ -20,21 +20,6 @@ export function LegalShell({ title, updated, children }: { title: string; update
           {children}
         </article>
       </main>
-      <footer className="border-t border-border/40 mt-12">
-        <div className="mx-auto max-w-4xl px-4 py-6 text-xs text-muted-foreground flex flex-wrap gap-4 justify-between">
-          <span>© {new Date().getFullYear()} AREELIVE</span>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-foreground">Terms &amp; Conditions</Link>
-            <Link to="/contact" className="hover:text-foreground">Contact Us</Link>
-            <Link to="/support" className="hover:text-foreground">Support</Link>
-            <Link to="/join" className="hover:text-foreground">Join AREELIVE</Link>
-            <Link to="/invite-broadcaster" className="hover:text-foreground">Invite Broadcaster</Link>
-            <Link to="/referral-policy" className="hover:text-foreground">Referral Policy</Link>
-            <Link to="/cookies" className="hover:text-foreground">Cookies</Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
