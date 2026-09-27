@@ -10,6 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero.jpg";
 import phoneImg from "@/assets/phone-mockup.png";
 import { JoinSection } from "@/components/join-section";
+import { EcosystemHighlights } from "@/components/ecosystem-highlights";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -207,6 +208,7 @@ function Features() {
           </div>
         ))}
       </div>
+      <EcosystemHighlights />
     </section>
   );
 }

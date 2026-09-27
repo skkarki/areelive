@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { OpportunityLayout } from "@/components/opportunity-layout";
 
 export const Route = createFileRoute("/company")({
@@ -46,7 +46,7 @@ function CompanyPage() {
             {[
               { label: "Platform Type", value: "Live Streaming & Entertainment" },
               { label: "Markets", value: "Global (150+ Countries)" },
-              { label: "Founded", value: "To be confirmed" },
+              { label: "Founded", value: "2025" },
               { label: "Technology", value: "Proprietary Platform" },
             ].map((fact) => (
               <div key={fact.label}>
@@ -79,28 +79,20 @@ function CompanyPage() {
               </p>
             </article>
           </div>
-          <article className="rounded-xl border border-border bg-card/60 p-6">
-            <h2 className="text-sm font-bold">Legal & Corporate Information</h2>
-            <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-              {[
-                "Legal Company Name",
-                "Registration Number",
-                "Jurisdiction",
-                "Registered Address",
-              ].map((label) => (
-                <div key={label} className="rounded-lg border border-border bg-background/30 p-4">
-                  <dt className="text-[10px] uppercase tracking-wide text-muted-foreground">
-                    {label}
-                  </dt>
-                  <dd className="mt-2 text-xs font-medium text-secondary">To be confirmed</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-              Verified legal and corporate details will be added when confirmed.
-            </p>
-          </article>
         </div>
+      </section>
+      <section className="border-t border-border/30 px-6 py-14 text-center">
+        <h2 className="text-2xl font-bold">Join the AreeLive Team</h2>
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          Help build the future of live entertainment. Share your CV and apply to join our company
+          team.
+        </p>
+        <Link
+          to="/careers"
+          className="gradient-primary mt-6 inline-flex rounded-xl px-6 py-3 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          Explore Careers
+        </Link>
       </section>
     </OpportunityLayout>
   );

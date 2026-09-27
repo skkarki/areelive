@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
@@ -81,21 +82,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AreeLive — Go Live, Get Gifted, Grow Your Fandom" },
-      { name: "description", content: "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!" },
+      {
+        name: "description",
+        content:
+          "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!",
+      },
       { name: "author", content: "AreeLive" },
       { name: "theme-color", content: "#a855f7" },
       { name: "robots", content: "index, follow" },
       { name: "google-site-verification", content: "RzzZ97Ufuuu8SVpRRKts6rET5mQ0R2wHtd6sdUlQRB0" },
       { property: "og:title", content: "AreeLive — Go Live, Get Gifted, Grow Your Fandom" },
-      { property: "og:description", content: "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!" },
+      {
+        property: "og:description",
+        content:
+          "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "AreeLive" },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "AreeLive — Go Live, Get Gifted, Grow Your Fandom" },
-      { name: "twitter:description", content: "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c69c195-3a90-4a51-b861-0907e4fb6ee4" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c69c195-3a90-4a51-b861-0907e4fb6ee4" },
+      {
+        name: "twitter:description",
+        content:
+          "AreeLive: Go live in seconds, earn virtual gifts, climb leaderboards & cash out instantly. Shop live too — buy & sell products directly with creators!",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c69c195-3a90-4a51-b861-0907e4fb6ee4",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1c69c195-3a90-4a51-b861-0907e4fb6ee4",
+      },
     ],
     links: [
       {
@@ -105,7 +126,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+      },
       { rel: "canonical", href: "https://areelive.com/" },
     ],
     scripts: [
@@ -115,7 +139,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "AreeLive",
-          description: "Live streaming app for creators with virtual gifts, VIP tiers, leaderboards, and instant payouts.",
+          description:
+            "Live streaming app for creators with virtual gifts, VIP tiers, leaderboards, and instant payouts.",
           url: "/",
         }),
       },
@@ -129,8 +154,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>
@@ -143,8 +169,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const pathname = useRouterState({ select: state => state.location.pathname });
-  const showFooter = pathname !== "/auth" && pathname !== "/admin" && !pathname.startsWith("/admin/");
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const showFooter =
+    pathname !== "/auth" && pathname !== "/admin" && !pathname.startsWith("/admin/");
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -10,8 +10,12 @@ import {
   UserRound,
   Shield,
   Languages,
+  Phone,
+  Video,
 } from "lucide-react";
 import { OpportunityCard, OpportunityLayout } from "@/components/opportunity-layout";
+import { EcosystemHighlights } from "@/components/ecosystem-highlights";
+import { CallFeature } from "@/components/call-feature";
 
 export const Route = createFileRoute("/features")({
   component: FeaturesPage,
@@ -99,6 +103,19 @@ const features = [
     description:
       "AreeLive is built for international markets with multi-language interfaces and localised experiences.",
   },
+  {
+    icon: Phone,
+    category: "Core",
+    title: "Audio Calls",
+    description: "Connect one-to-one through private audio calls between creators and users.",
+  },
+  {
+    icon: Video,
+    category: "Core",
+    title: "Video Calls",
+    description:
+      "Enjoy one-to-one video calls for private creator/user interactions beyond the livestream.",
+  },
 ];
 
 function FeaturesPage() {
@@ -115,6 +132,10 @@ function FeaturesPage() {
         {features.map((feature) => (
           <OpportunityCard key={feature.title} {...feature} />
         ))}
+      </section>
+      <CallFeature />
+      <section aria-label="More of the AreeLive ecosystem" className="mx-auto max-w-5xl px-6 pb-20">
+        <EcosystemHighlights />
       </section>
     </OpportunityLayout>
   );

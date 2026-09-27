@@ -8,7 +8,7 @@ const groups = [
     links: [
       { label: "About", href: "/creators" },
       { label: "Company", href: "/company" },
-      { label: "Careers", href: "/join" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact Us", href: "/contact" },
     ],
   },

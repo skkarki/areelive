@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { SiteBrand } from "@/components/site-brand";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -28,8 +29,10 @@ export function SiteHeader() {
   const navigationId = useId();
   return (
     <header className="sticky top-0 z-50 border-b border-border/20 bg-background/95 backdrop-blur-xl">
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-8">
-        <SiteBrand />
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-1 px-4 py-4 md:gap-4 md:px-8">
+        <div className="[&_a]:gap-1 [&_a]:text-xl [&_svg]:w-6 sm:[&_a]:gap-2 sm:[&_a]:text-3xl sm:[&_svg]:w-8">
+          <SiteBrand />
+        </div>
         <nav
           id={navigationId}
           aria-label="Main navigation"
@@ -68,14 +71,15 @@ export function SiteHeader() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <ThemeToggle />
           <a
             href="/#download"
             onClick={() => {
               setOpen(false);
               trackEvent("download_click", { location: "header", platform: "web" });
             }}
-            className="gradient-primary inline-flex shrink-0 items-center justify-center rounded-2xl px-4 py-3 text-xs font-bold text-white shadow-glow transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:px-6 md:text-sm"
+            className="gradient-primary inline-flex shrink-0 items-center justify-center rounded-2xl px-2 py-3 text-xs font-bold text-white shadow-glow transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:px-3 md:px-6 md:text-sm"
           >
             Get AreeLive
           </a>
@@ -85,7 +89,7 @@ export function SiteHeader() {
             aria-expanded={open}
             aria-controls={navigationId}
             onClick={() => setOpen((value) => !value)}
-            className="rounded-lg p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
+            className="rounded-lg p-1.5 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:p-2 lg:hidden"
           >
             {open ? (
               <X aria-hidden="true" className="h-5 w-5" />

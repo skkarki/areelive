@@ -91,7 +91,56 @@ function BusinessPage() {
           ))}
         </div>
       </section>
-      <section className="border-t border-border/30 bg-card/20 px-6 py-16">
+      <section
+        id="promote"
+        aria-labelledby="promote-heading"
+        className="mx-auto max-w-5xl scroll-mt-28 px-6 pb-16"
+      >
+        <div className="rounded-xl border border-primary/30 bg-card/60 p-6 md:p-8">
+          <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <Megaphone aria-hidden="true" className="h-4 w-4" />
+          </span>
+          <h2 id="promote-heading" className="text-2xl font-bold">
+            Promote Your Business on AreeLive
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Bring your brand into the AreeLive ecosystem through marketing and advertising services
+            for external businesses, with opportunities to connect through creators, content, and
+            live shopping.
+          </p>
+          <ul className="mt-6 grid gap-3 text-sm sm:grid-cols-2">
+            {[
+              "Advertising",
+              "Sponsored campaigns",
+              "Brand deals",
+              "Creator/influencer collaborations",
+              "Sponsored livestreams",
+              "Product promotion",
+              "Live-commerce campaigns",
+              "Marketing partnerships",
+            ].map((service) => (
+              <li key={service} className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {service}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#business-enquiry"
+            className="gradient-primary mt-7 inline-flex rounded-xl px-6 py-3 text-sm font-bold text-white shadow-glow hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            Promote With Us
+          </a>
+          <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+            Select “Marketing &amp; Advertising” in the enquiry form and tell us about your business
+            and campaign goals.
+          </p>
+        </div>
+      </section>
+      <section
+        id="business-enquiry"
+        className="scroll-mt-28 border-t border-border/30 bg-card/20 px-6 py-16"
+      >
         <div className="mx-auto mb-8 max-w-xl text-center">
           <h2 className="text-2xl font-bold">Business Enquiry Form</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

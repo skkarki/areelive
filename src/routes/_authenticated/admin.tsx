@@ -70,12 +70,13 @@ function AdminLayout() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b bg-background sticky top-0 z-40">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <div className="flex items-center gap-4">
             <Link to="/" className="font-black tracking-tight">AREELIVE</Link>
-            <nav className="flex items-center gap-1 text-sm">
+            <nav className="flex flex-wrap items-center gap-1 text-sm">
               <Link to="/admin/applications" className={`px-3 py-1.5 rounded-md ${path.includes("/admin/applications") ? "bg-secondary" : "hover:bg-secondary/50"}`}>Applications</Link>
               <Link to="/admin/referrals" className={`px-3 py-1.5 rounded-md ${path.includes("/admin/referrals") ? "bg-secondary" : "hover:bg-secondary/50"}`}>Referrals</Link>
+              <Link to="/admin/careers" className={`px-3 py-1.5 rounded-md ${path.includes("/admin/careers") ? "bg-secondary" : "hover:bg-secondary/50"}`}>Careers</Link>
             </nav>
           </div>
           <Button variant="ghost" size="sm" onClick={signOut}><LogOut className="mr-2 h-4 w-4" />Sign out</Button>

@@ -21,7 +21,7 @@ export const Route = createFileRoute("/privacy")({
 
 function PrivacyPage() {
   return (
-    <LegalShell title="Privacy Policy" updated="July 5, 2026">
+    <LegalShell title="Privacy Policy" updated="September 27, 2026">
       <p>
         This Privacy Policy explains how AREELIVE ("we", "us", "our") collects, uses, shares, and protects
         personal information when you use the AREELIVE app, website, and related services (the "Services"),
@@ -78,6 +78,16 @@ function PrivacyPage() {
         If you submit an application or referral that includes another person's information (for example,
         when inviting a broadcaster friend), you must only submit that information if you have their
         permission to share it with AREELIVE for the purposes described in this Policy.
+      </p>
+
+      <h3>2.3 Careers applications</h3>
+      <p>
+        When you apply for a company job through our Careers page, we collect your name, contact
+        details, location, preferred role, any introduction you provide, your CV, and an optional
+        recommendation letter. Our authorised team uses these details to review your application
+        and contact you about recruitment. Uploaded documents are stored privately and are not
+        published on the website. Only include another person's information in a recommendation
+        letter if you have their permission to share it with us.
       </p>
 
       <h2>3. How we share information</h2>

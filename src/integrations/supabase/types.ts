@@ -14,6 +14,46 @@ export type Database = {
   }
   public: {
     Tables: {
+      career_applications: {
+        Row: {
+          id: string
+          full_name: string
+          email: string
+          phone: string
+          country_city: string
+          position: string
+          cover_letter: string | null
+          cv_path: string
+          cv_name: string
+          recommendation_path: string | null
+          recommendation_name: string | null
+          consent: boolean
+          consent_at: string
+          status: Database["public"]["Enums"]["application_status"]
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          full_name: string
+          email: string
+          phone: string
+          country_city: string
+          position: string
+          cover_letter?: string | null
+          cv_path: string
+          cv_name: string
+          recommendation_path?: string | null
+          recommendation_name?: string | null
+          consent: boolean
+          consent_at?: string
+          status?: Database["public"]["Enums"]["application_status"]
+          created_at?: string
+          updated_at?: string
+        }
+        Update: { status?: Database["public"]["Enums"]["application_status"] }
+        Relationships: []
+      }
       applications: {
         Row: {
           admin_notes: string | null

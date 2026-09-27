@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SafetyRouteImport } from './routes/safety'
 import { Route as ReferralPolicyRouteImport } from './routes/referral-policy'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -22,6 +23,7 @@ import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompanyRouteImport } from './routes/company'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -30,6 +32,7 @@ import { Route as JoinRoleRouteImport } from './routes/join.$role'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
 import { Route as AuthenticatedAdminReferralsRouteImport } from './routes/_authenticated/admin.referrals'
+import { Route as AuthenticatedAdminCareersRouteImport } from './routes/_authenticated/admin.careers'
 import { Route as AuthenticatedAdminApplicationsRouteImport } from './routes/_authenticated/admin.applications'
 
 const TermsRoute = TermsRouteImport.update({
@@ -45,6 +48,11 @@ const SupportRoute = SupportRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SafetyRoute = SafetyRouteImport.update({
@@ -97,6 +105,11 @@ const CompanyRoute = CompanyRouteImport.update({
   path: '/company',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessRoute = BusinessRouteImport.update({
   id: '/business',
   path: '/business',
@@ -137,6 +150,12 @@ const AuthenticatedAdminReferralsRoute =
     path: '/referrals',
     getParentRoute: () => AuthenticatedAdminRoute,
   } as any)
+const AuthenticatedAdminCareersRoute =
+  AuthenticatedAdminCareersRouteImport.update({
+    id: '/careers',
+    path: '/careers',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 const AuthenticatedAdminApplicationsRoute =
   AuthenticatedAdminApplicationsRouteImport.update({
     id: '/applications',
@@ -148,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -158,12 +178,14 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
   '/safety': typeof SafetyRoute
+  '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/join/$role': typeof JoinRoleRoute
   '/admin/applications': typeof AuthenticatedAdminApplicationsRoute
+  '/admin/careers': typeof AuthenticatedAdminCareersRoute
   '/admin/referrals': typeof AuthenticatedAdminReferralsRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -171,6 +193,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -181,11 +204,13 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
   '/safety': typeof SafetyRoute
+  '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/join/$role': typeof JoinRoleRoute
   '/admin/applications': typeof AuthenticatedAdminApplicationsRoute
+  '/admin/careers': typeof AuthenticatedAdminCareersRoute
   '/admin/referrals': typeof AuthenticatedAdminReferralsRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
 }
@@ -195,6 +220,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/company': typeof CompanyRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -205,12 +231,14 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/referral-policy': typeof ReferralPolicyRoute
   '/safety': typeof SafetyRoute
+  '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/join/$role': typeof JoinRoleRoute
   '/_authenticated/admin/applications': typeof AuthenticatedAdminApplicationsRoute
+  '/_authenticated/admin/careers': typeof AuthenticatedAdminCareersRoute
   '/_authenticated/admin/referrals': typeof AuthenticatedAdminReferralsRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
 }
@@ -220,6 +248,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/business'
+    | '/careers'
     | '/company'
     | '/contact'
     | '/cookies'
@@ -230,12 +259,14 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/referral-policy'
     | '/safety'
+    | '/shop'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
     | '/admin'
     | '/join/$role'
     | '/admin/applications'
+    | '/admin/careers'
     | '/admin/referrals'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -243,6 +274,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/business'
+    | '/careers'
     | '/company'
     | '/contact'
     | '/cookies'
@@ -253,11 +285,13 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/referral-policy'
     | '/safety'
+    | '/shop'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
     | '/join/$role'
     | '/admin/applications'
+    | '/admin/careers'
     | '/admin/referrals'
     | '/admin'
   id:
@@ -266,6 +300,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/business'
+    | '/careers'
     | '/company'
     | '/contact'
     | '/cookies'
@@ -276,12 +311,14 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/referral-policy'
     | '/safety'
+    | '/shop'
     | '/sitemap.xml'
     | '/support'
     | '/terms'
     | '/_authenticated/admin'
     | '/join/$role'
     | '/_authenticated/admin/applications'
+    | '/_authenticated/admin/careers'
     | '/_authenticated/admin/referrals'
     | '/_authenticated/admin/'
   fileRoutesById: FileRoutesById
@@ -291,6 +328,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   BusinessRoute: typeof BusinessRoute
+  CareersRoute: typeof CareersRoute
   CompanyRoute: typeof CompanyRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
@@ -301,6 +339,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ReferralPolicyRoute: typeof ReferralPolicyRoute
   SafetyRoute: typeof SafetyRoute
+  ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
@@ -327,6 +366,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/safety': {
@@ -399,6 +445,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business': {
       id: '/business'
       path: '/business'
@@ -455,6 +508,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminReferralsRouteImport
       parentRoute: typeof AuthenticatedAdminRoute
     }
+    '/_authenticated/admin/careers': {
+      id: '/_authenticated/admin/careers'
+      path: '/careers'
+      fullPath: '/admin/careers'
+      preLoaderRoute: typeof AuthenticatedAdminCareersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
     '/_authenticated/admin/applications': {
       id: '/_authenticated/admin/applications'
       path: '/applications'
@@ -467,12 +527,14 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedAdminRouteChildren {
   AuthenticatedAdminApplicationsRoute: typeof AuthenticatedAdminApplicationsRoute
+  AuthenticatedAdminCareersRoute: typeof AuthenticatedAdminCareersRoute
   AuthenticatedAdminReferralsRoute: typeof AuthenticatedAdminReferralsRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
 const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
   AuthenticatedAdminApplicationsRoute: AuthenticatedAdminApplicationsRoute,
+  AuthenticatedAdminCareersRoute: AuthenticatedAdminCareersRoute,
   AuthenticatedAdminReferralsRoute: AuthenticatedAdminReferralsRoute,
   AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
@@ -506,6 +568,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   BusinessRoute: BusinessRoute,
+  CareersRoute: CareersRoute,
   CompanyRoute: CompanyRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
@@ -516,6 +579,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ReferralPolicyRoute: ReferralPolicyRoute,
   SafetyRoute: SafetyRoute,
+  ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
