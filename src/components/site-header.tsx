@@ -30,7 +30,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/20 bg-background/95 backdrop-blur-xl">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-1 px-4 py-4 md:gap-4 md:px-8">
-        <div className="[&_a]:gap-1 [&_a]:text-xl [&_svg]:w-6 sm:[&_a]:gap-2 sm:[&_a]:text-3xl sm:[&_svg]:w-8">
+        <div className="[&_a]:gap-1 [&_a]:text-xl [&_img]:w-6 sm:[&_a]:gap-2 sm:[&_a]:text-3xl sm:[&_img]:w-8">
           <SiteBrand />
         </div>
         <nav
