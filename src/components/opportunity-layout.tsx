@@ -19,7 +19,7 @@ export function OpportunityLayout({
           <span className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-secondary">
             {eyebrow}
           </span>
-          <h1 className="mx-auto mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
+          <h1 className="mx-auto mt-5 max-w-xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
             {title}
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
