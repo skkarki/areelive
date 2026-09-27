@@ -1,0 +1,21 @@
+# AreeLive
+
+> AreeLive is the live streaming app for creators. Go live in seconds, earn virtual gifts, climb leaderboards, and cash out with instant payouts.
+
+## Pages
+
+- [Home](/): Overview of AreeLive — features, gifts, VIP tiers, leaderboards, and payouts.
+- [Join AreeLive](/join): Apply to join AreeLive as a creator, agency, merchant, recruiter, agency manager, or admin.
+- [Apply as Creator](/join/creator): Apply to become an AreeLive creator.
+- [Apply as Agency](/join/agency): Apply to onboard your agency to AreeLive.
+- [Apply as Merchant](/join/merchant): Apply to sell products live on AreeLive.
+- [Apply as Recruiter](/join/recruiter): Apply as a creator recruiter / talent scout.
+- [Apply as Agency Manager](/join/agency_manager): Apply as an agency manager.
+- [Invite a Broadcaster](/invite-broadcaster): Refer broadcaster friends and earn a one-time bonus per approved invite.
+
+## Optional
+
+- [Privacy Policy](/privacy): How AreeLive handles personal data.
+- [Terms & Conditions](/terms): AreeLive terms of service.
+- [Referral Policy](/referral-policy): Rules for the broadcaster invite & earn program.
+- [Cookie Policy](/cookies): Cookies and tracking on AreeLive.
