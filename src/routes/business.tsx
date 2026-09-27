@@ -8,7 +8,7 @@ import {
   MapPin,
   MessageSquare,
 } from "lucide-react";
-import { OpportunityCard, OpportunityLayout } from "@/components/opportunity-layout";
+import { OpportunityLayout } from "@/components/opportunity-layout";
 import { PartnershipForm } from "@/components/partnership-form";
 
 export const Route = createFileRoute("/business")({
@@ -28,12 +28,12 @@ export const Route = createFileRoute("/business")({
 const partnerships = [
   {
     icon: Handshake,
-    title: "Strategic Partnerships",
+    title: "Strategic Partnership",
     description: "Long-term strategic alliances and joint ventures.",
   },
   {
     icon: CreditCard,
-    title: "Payment Partnerships",
+    title: "Payment Partnership",
     description: "Payment processors, wallets, and financial service providers.",
   },
   {
@@ -43,12 +43,12 @@ const partnerships = [
   },
   {
     icon: Globe,
-    title: "Technology Partnerships",
+    title: "Technology Partnership",
     description: "Technology providers, infrastructure, and platform integrations.",
   },
   {
     icon: Users,
-    title: "Talent / Agency Partnerships",
+    title: "Talent / Agency Partnership",
     description: "Talent agencies, creator networks, and management companies.",
   },
   {
@@ -70,22 +70,31 @@ function BusinessPage() {
       title="Partner with AreeLive"
       description="We welcome strategic partnerships with companies, payment providers, technology businesses, marketing partners, talent organisations, and regional operators who share our vision for the future of live entertainment."
     >
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <p className="mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
+      <section className="mx-auto max-w-5xl px-6 pb-16">
+        <p className="mx-auto mb-10 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
           AreeLive is building the next generation of global live entertainment. We partner with
           organisations that can help us grow, improve, and expand our platform and reach. If your
           business has a compelling proposition, we want to hear from you.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {partnerships.map((item) => (
-            <OpportunityCard key={item.title} {...item} />
+          {partnerships.map(({ icon: Icon, title, description }) => (
+            <article
+              key={title}
+              className="rounded-lg border border-border bg-card/60 p-4 transition-colors hover:border-primary/40"
+            >
+              <span className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <h2 className="text-xs font-bold">{title}</h2>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{description}</p>
+            </article>
           ))}
         </div>
       </section>
       <section className="border-t border-border/30 bg-card/20 px-6 py-16">
         <div className="mx-auto mb-8 max-w-xl text-center">
           <h2 className="text-2xl font-bold">Business Enquiry Form</h2>
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Tell us about your proposal. Send your completed enquiry to our business team through
             your email app.
           </p>

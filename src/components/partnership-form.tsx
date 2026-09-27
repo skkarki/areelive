@@ -150,7 +150,7 @@ export function PartnershipForm({ kind }: { kind: "agency" | "business" }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="mx-auto max-w-xl rounded-xl border border-border bg-card/60 p-6 md:p-8"
+      className={`mx-auto max-w-xl rounded-xl border border-border bg-card/60 p-6 md:p-8 ${!agency ? "[&_input:not([type=checkbox])]:rounded-md [&_input:not([type=checkbox])]:bg-muted/40 [&_select]:bg-muted/40 [&_textarea]:rounded-md [&_textarea]:bg-muted/40" : ""}`}
     >
       <fieldset disabled={pending} className="grid gap-5">
         <legend className="sr-only">{agency ? "Agency application" : "Business enquiry"}</legend>
@@ -172,90 +172,7 @@ export function PartnershipForm({ kind }: { kind: "agency" | "business" }) {
             </select>
           </FormField>
         )}
-        <div className="grid gap-5 sm:grid-cols-2">
-          <FormField id={`${id}-name`} label={agency ? "Full Name" : "Contact Name"} required>
-            <Input
-              id={`${id}-name`}
-              name="full_name"
-              placeholder="Your full name"
-              autoComplete="name"
-              required
-              maxLength={120}
-            />
-          </FormField>
-          <FormField
-            id={`${id}-company`}
-            label={agency ? "Agency / Company Name" : "Company / Organisation Name"}
-            required
-          >
-            <Input
-              id={`${id}-company`}
-              name="company"
-              placeholder={agency ? "Your agency or company name" : "Your company name"}
-              autoComplete="organization"
-              required
-              maxLength={200}
-            />
-          </FormField>
-          <FormField id={`${id}-country`} label="Country / Region" required>
-            <Input
-              id={`${id}-country`}
-              name="country"
-              placeholder="e.g. Nepal"
-              autoComplete="country-name"
-              required
-              maxLength={120}
-              list={`${id}-countries`}
-            />
-            <datalist id={`${id}-countries`}>
-              {[
-                "Nepal",
-                "India",
-                "Bangladesh",
-                "Pakistan",
-                "United States",
-                "United Kingdom",
-                "Philippines",
-                "Indonesia",
-                "United Arab Emirates",
-                "Saudi Arabia",
-                "Brazil",
-                "Australia",
-                "Canada",
-                "Germany",
-              ].map((country) => (
-                <option key={country} value={country} />
-              ))}
-            </datalist>
-          </FormField>
-          <FormField
-            id={`${id}-email`}
-            label={agency ? "Email Address" : "Business Email"}
-            required
-          >
-            <Input
-              id={`${id}-email`}
-              name="email"
-              type="email"
-              placeholder={agency ? "you@email.com" : "you@company.com"}
-              autoComplete="email"
-              required
-              maxLength={254}
-            />
-          </FormField>
-        </div>
-        <FormField id={`${id}-phone`} label="Phone / WhatsApp" required={agency}>
-          <Input
-            id={`${id}-phone`}
-            name="phone"
-            type="tel"
-            placeholder="+1 234 567 8900"
-            autoComplete="tel"
-            required={agency}
-            minLength={agency ? 4 : undefined}
-            maxLength={40}
-          />
-        </FormField>
+        <ContactFields id={id} agency={agency} />
         {agency && (
           <>
             <FormField id={`${id}-network`} label="Existing Creator / Host Network" required>
@@ -311,19 +228,21 @@ export function PartnershipForm({ kind }: { kind: "agency" | "business" }) {
             </FormField>
           </>
         )}
-        <FormField
-          id={`${id}-website`}
-          label={agency ? "Website / Social Media (optional)" : "Company Website (optional)"}
-        >
-          <Input
+        {agency && (
+          <FormField
             id={`${id}-website`}
-            name="website"
-            type="url"
-            placeholder="https://yourwebsite.com"
-            autoComplete="url"
-            maxLength={500}
-          />
-        </FormField>
+            label={agency ? "Website / Social Media (optional)" : "Company Website (optional)"}
+          >
+            <Input
+              id={`${id}-website`}
+              name="website"
+              type="url"
+              placeholder="https://yourwebsite.com"
+              autoComplete="url"
+              maxLength={500}
+            />
+          </FormField>
+        )}
         <FormField
           id={`${id}-message`}
           label={agency ? "Message / Additional Information" : "Your Enquiry / Proposal"}
@@ -379,7 +298,10 @@ export function PartnershipForm({ kind }: { kind: "agency" | "business" }) {
             {error}
           </p>
         )}
-        <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+        <Button
+          type="submit"
+          className={`w-full ${agency ? "bg-primary hover:bg-primary/90" : "gradient-primary text-white hover:opacity-90"}`}
+        >
           {pending ? (
             <>
               <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -398,6 +320,107 @@ export function PartnershipForm({ kind }: { kind: "agency" | "business" }) {
         </p>
       </fieldset>
     </form>
+  );
+}
+
+function ContactFields({ id, agency }: { id: string; agency: boolean }) {
+  const fields = {
+    full_name: {
+      label: agency ? "Full Name" : "Contact Name",
+      placeholder: "Your full name",
+      autoComplete: "name",
+      required: true,
+      maxLength: 120,
+    },
+    company: {
+      label: agency ? "Agency / Company Name" : "Company / Organisation Name",
+      placeholder: agency ? "Your agency or company name" : "Your company name",
+      autoComplete: "organization",
+      required: true,
+      maxLength: 200,
+    },
+    country: {
+      label: "Country / Region",
+      placeholder: "e.g. Nepal",
+      autoComplete: "country-name",
+      required: true,
+      maxLength: 120,
+    },
+    email: {
+      label: agency ? "Email Address" : "Business Email",
+      placeholder: agency ? "you@email.com" : "you@company.com",
+      autoComplete: "email",
+      required: true,
+      maxLength: 254,
+    },
+    phone: {
+      label: "Phone / WhatsApp",
+      placeholder: "+1 234 567 8900",
+      autoComplete: "tel",
+      required: agency,
+      maxLength: 40,
+    },
+    website: {
+      label: "Company Website",
+      placeholder: "https://yourcompany.com",
+      autoComplete: "url",
+      required: false,
+      maxLength: 500,
+    },
+  };
+  const order: (keyof typeof fields)[] = agency
+    ? ["full_name", "company", "country", "email", "phone"]
+    : ["company", "full_name", "email", "phone", "website", "country"];
+  return (
+    <div className="grid gap-5 sm:grid-cols-2">
+      {order.map((name) => {
+        const { label, ...inputProps } = fields[name];
+        return (
+          <div key={name} className={agency && name === "phone" ? "sm:col-span-2" : undefined}>
+            <FormField id={`${id}-${name}`} label={label} required={inputProps.required}>
+              <Input
+                id={`${id}-${name}`}
+                name={name}
+                {...inputProps}
+                type={
+                  name === "email"
+                    ? "email"
+                    : name === "phone"
+                      ? "tel"
+                      : name === "website"
+                        ? "url"
+                        : "text"
+                }
+                minLength={agency && name === "phone" ? 4 : undefined}
+                list={name === "country" ? `${id}-countries` : undefined}
+              />
+              {name === "country" && (
+                <datalist id={`${id}-countries`}>
+                  {[
+                    "Nepal",
+                    "India",
+                    "Bangladesh",
+                    "Pakistan",
+                    "United States",
+                    "United Kingdom",
+                    "Philippines",
+                    "Indonesia",
+                    "United Arab Emirates",
+                    "Saudi Arabia",
+                    "Brazil",
+                    "Australia",
+                    "Canada",
+                    "Germany",
+                  ].map((country) => (
+                    <option key={country} value={country} />
+                  ))}
+                </datalist>
+              )}
+            </FormField>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
